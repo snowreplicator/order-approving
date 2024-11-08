@@ -26,7 +26,6 @@ public class OrderServiceImpl implements OrderService {
     public OrderViewModel add(AddOrderDTO addOrderDTO) {
         Order order = new Order();
         order.setState(States.DRAFT);
-        order.setState(null);
         order.setStateDate(LocalDateTime.now());
         order.setDescription(addOrderDTO.getDescription());
 
