@@ -39,7 +39,7 @@ public class Order {
     @NotNull
     private LocalDateTime stateDate;
 
-    @Column(name = "description", nullable = true)
+    @Column(name = "description")
     private String description;
 
 }
