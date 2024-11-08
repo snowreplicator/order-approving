@@ -1,3 +1,5 @@
 databaseChangeLog:
   - include:
       file: /db/changelog/changeset/create-table-common-setting.yaml
+  - include:
+      file: /db/changelog/changeset/create-table-order.yaml

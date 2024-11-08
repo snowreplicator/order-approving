@@ -1,0 +1,40 @@
+databaseChangeLog:
+  - changeSet:
+      id: 2024_11_08_1635
+      author: SnowReplicator
+      changes:
+        - createTable:
+            tableName: order
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+                  remarks: "order pri key"
+              - column:
+                  name: state
+                  type: text
+                  constraints:
+                    primaryKey: false
+                    nullable: false
+                  remarks: "order state"
+              - column:
+                  name: state_date
+                  type: timestamp without time zone
+                  constraints:
+                    primaryKey: false
+                    nullable: false
+                  remarks: "date of state change"
+              - column:
+                  name: description
+                  type: text
+                  constraints:
+                    primaryKey: false
+                    nullable: true
+                  remarks: "change state description"
+        - setTableRemarks:
+            tableName: order
+            remarks: "Table with orders"
