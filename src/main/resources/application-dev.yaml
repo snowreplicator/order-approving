@@ -1,0 +1,34 @@
+spring:
+  application:
+    name: order-approving
+  datasource:
+    url: jdbc:postgresql://localhost:5432/order_approving_db
+    username: postgres_login
+    password: postgres_password
+  jpa:
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+        default_schema: order_approving
+    show-sql: true
+  liquibase:
+    enabled: true
+    default-schema: order_approving
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
+
+springdoc:
+  api-docs:
+    enabled: true
+    path: /api-docs
+  swagger-ui:
+    enabled: true
+    path: /swagger-ui.html
+
+server:
+  port: 22226
+  ssl:
+    enabled: false

@@ -1,0 +1,36 @@
+spring:
+  application:
+    name: order-approving
+  datasource:
+    url: ${DATABASE_URL}
+    username: ${DATABASE_USERNAME}
+    password: ${DATABASE_PASSWORD}
+  jpa:
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+        default_schema: ${DATABASE_SCHEMA}
+    show-sql: true
+  liquibase:
+    enabled: true
+    default-schema: ${DATABASE_SCHEMA}
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
+
+springdoc:
+  api-docs:
+    enabled: true
+    path: /api-docs
+  swagger-ui:
+    enabled: true
+    path: /swagger-ui.html
+
+server:
+  port: 443
+  ssl:
+    enabled: true
+    key-store: /app/resources/keystore/keystore.p12
+    key-store-password: changeit

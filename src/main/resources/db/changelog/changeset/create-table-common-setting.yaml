@@ -1,0 +1,47 @@
+databaseChangeLog:
+  - changeSet:
+      id: 2024_11_08_1524
+      author: SnowReplicator
+      changes:
+        - createTable:
+            tableName: common_setting
+            columns:
+              - column:
+                  name: option
+                  type: text
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+                  remarks: "setting identification"
+              - column:
+                  name: value
+                  type: text
+                  constraints:
+                    nullable: true
+                  remarks: "setting value"
+        - setTableRemarks:
+            tableName: common_setting
+            remarks: "Table for save service settings"
+        #
+        # first time table data (date insert)
+        # setting of default locale
+        #
+        - insert:
+            tableName: common_setting
+            columns:
+              - column:
+                  name: option
+                  value: "DefaultLocale"
+              - column:
+                  name: value
+                  value: "ru-RU"
+        # setting of available locales
+        - insert:
+            tableName: common_setting
+            columns:
+              - column:
+                  name: option
+                  value: "AvailableLocales"
+              - column:
+                  name: value
+                  value: "ru-RU,en-US"
